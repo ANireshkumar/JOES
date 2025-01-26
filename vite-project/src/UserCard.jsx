@@ -1,4 +1,39 @@
 
+import PropTypes from 'prop-types'
+const UserData = [
+  {
+    name:"Niresh Kumar",
+    profile:"images/image3.jpg",
+    city:"Chennai",
+    description:"Front-end Developer",
+    skills:["UI/UX","Front End Developer", "Html", "Css", "JavaScript","React","Node"],
+    online:true
+  },
+  {
+    name:"Jhon Doe",
+    profile:"images/image2.jpg",    city:"Chennai",
+    description:"Front-end Developer",
+    skills:["UI/UX","Front End Developer", "Html", "Css", "JavaScript","React","Node"],
+    online:true
+  },
+  {
+    name:"Mani",
+    profile:"images/image1.jpg",
+        city:"Chennai",
+    description:"Front-end Developer",
+    skills:["UI/UX","Front End Developer", "Html", "Css", "JavaScript","React","Node"],
+    online:false
+  },
+  {
+    name:"Mohit",
+    profile:"images/image3.jpg",
+        city:"Chennai",  
+    description:"Front-end Developer",
+    skills:["UI/UX","Front End Developer", "Html", "Css", "JavaScript","React","Node"],
+    online:true
+  }
+]
+
 
 
 function User(props){
@@ -25,9 +60,19 @@ function User(props){
 export const UserCard = () => {
   return (
     
-      <User name= "Niresh Kumar" city = "Chennai"  description = " Front-end Developer" skills = {[
+/*       <User name= "Niresh Kumar" city = "Chennai"  description = " Front-end Developer" skills = {[
         "UI/UX","Front End Developer", "Html", "Css", "JavaScript","React","Node"
-      ]} online={false} profile="images/image2.jpg"/>
+      ]} online={false} profile="images/image2.jpg"/> */
     
+      <>{UserData.map((user , index) => <User key={index} {...user}/>)}</>
   )
+}
+
+User.propTypes = {
+  name: PropTypes.string.isRequired,
+  profile: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  skills: PropTypes.array.isRequired,
+  online: PropTypes.bool.isRequired
 }
